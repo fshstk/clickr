@@ -30,6 +30,8 @@ juce_add_plugin(${CMAKE_PROJECT_NAME}
 )
 
 target_compile_definitions(${CMAKE_PROJECT_NAME} PUBLIC
+  PLUGIN_VERSION="v${CMAKE_PROJECT_VERSION}"
+
   JUCE_VST3_CAN_REPLACE_VST2=0
 
   # This one's important because it gets rid of the "gtk header not found" error

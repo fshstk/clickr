@@ -25,7 +25,7 @@ PluginEditor::PluginEditor(PluginProcessor& p)
 void PluginEditor::paint(juce::Graphics& g)
 {
   const auto link = "github.com/fshstk";
-  const auto version = "v0.1";
+  const auto version = PLUGIN_VERSION;
   const auto textArea = getLocalBounds().removeFromBottom(50).reduced(2);
 
   g.setColour(juce::Colours::white);
