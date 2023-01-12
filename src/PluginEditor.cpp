@@ -24,7 +24,7 @@ PluginEditor::PluginEditor(PluginProcessor& p)
 
 void PluginEditor::paint(juce::Graphics& g)
 {
-  const auto link = "github.com/fshstk";
+  const auto link = "github.com/fshstk/clickr";
   const auto version = PLUGIN_VERSION;
   const auto textArea = getLocalBounds().removeFromBottom(50).reduced(2);
 
