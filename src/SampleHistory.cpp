@@ -1,4 +1,5 @@
 #include "SampleHistory.h"
+#include <cassert>
 
 namespace {
 template<typename T>

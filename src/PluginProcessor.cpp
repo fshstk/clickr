@@ -2,6 +2,7 @@
 #include "PluginEditor.h"
 #include "SampleHistory.h"
 #include <algorithm>
+#include <cassert>
 #include <numeric>
 
 namespace {
