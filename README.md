@@ -40,7 +40,7 @@ git/cmake/compiler set-up. Building is pretty straightforward as the required pr
 are automatically downloaded and built at configure-time.
 
 If you are using Linux, you may need some basic dev libraries installed. Please see the
-[CI workflow](.github/workflows/build-release.yaml) for a complete list (for Ubuntu).
+[CI workflow](.github/workflows/build-release.yml) for a complete list (for Ubuntu).
 
 ## License
 
