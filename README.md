@@ -26,7 +26,7 @@ Using it should be pretty self-explanatory. There's only one button.
 Clickr is free and open-source. If it helps you in some way, that's fantastic.
 I don't expect anything in return, but you can feel free to drop a tip.
 
-![Support me on Ko-fi](https://storage.ko-fi.com/cdn/brandasset/kofi_button_stroke.png)
+[![Support me on Ko-fi](https://storage.ko-fi.com/cdn/brandasset/kofi_button_stroke.png)](https://ko-fi.com/fshstk)
 
 ## Feedback
 
