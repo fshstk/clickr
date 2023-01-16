@@ -21,6 +21,32 @@ additionally available for Mac.
 Download the latest release [here](https://github.com/fshstk/clickr/releases/latest).
 Using it should be pretty self-explanatory. There's only one button.
 
+## If Clickr doesn't appear in your DAW (macOS only)
+
+Clickr may not work properly until you
+[de-quarantine](https://eclecticlight.co/2020/11/19/getting-unnotarized-apps-out-of-quarantine/) the
+app/plug-in. Apps under quarantine will fail to show up in your DAW's plug-in list and refuse to
+open when double-clicked. (You will get an error message along the lines of "Clickr.app can't be
+opened because Apple cannot check it for malicious software.")
+
+There are two workarounds:
+
+1. _Standalone only:_ Instead of double-clicking the app, right-click it and select "Open" from the
+   contextual menu. This wil allow you to open the app.
+2. _All versions:_ Open Terminal and enter the following:
+
+   ```bash
+   # Copy-paste the following line:
+   $ xattr -d com.apple.quarantine /path/to/Clickr.component
+   ```
+
+   where `path/to/Clickr.component` is the full system path to the Clickr app or plug-in. You can
+   get this easily by entering the first part of the command (`xattr -d com.apple.quarantine`
+   followed by a space) and then dragging the AU/VST/app into yout Terminal window. This will
+   automatically enter the correct path for the command.
+
+   After this you will need to trigger a plug-in re-scan and/or restart your DAW.
+
 ## Buy me a Coffee/Beer
 
 Clickr is free and open-source. If it helps you in some way, that's fantastic.
