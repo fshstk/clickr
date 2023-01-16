@@ -85,7 +85,7 @@ void PluginProcessor::calculateDelayAndUpdate() const
   const auto largestElement = std::max_element(differences.cbegin(), differences.cend());
   const auto index = std::distance(differences.cbegin(), largestElement);
 
-  const auto delayInSamples = static_cast<int>(index) /* - bufferSize */;
+  const auto delayInSamples = static_cast<int>(index) - bufferSize;
   const auto delayInMilliseconds = delayInSamples * 1e3 / sampleRate;
 
   assert(updateDelay);
