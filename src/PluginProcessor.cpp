@@ -24,8 +24,8 @@ void PluginProcessor::startMeasurement(const CallbackFunc& callback)
 
 void PluginProcessor::prepareToPlay(double newSampleRate, int newBufferSize)
 {
+  juce::ignoreUnused(newBufferSize);
   sampleRate = newSampleRate;
-  bufferSize = newBufferSize;
   history.setSampleRate(newSampleRate);
 }
 
@@ -57,6 +57,14 @@ void PluginProcessor::processAudio(juce::AudioBuffer<T>& audio)
     case State::Started:
       audio.clear();
       playImpulse(audio);
+
+      // Note: you might think that getting the buffer size is better to do inside prepareToPlay(),
+      // or in processBlock() using getBlockSize(). This works for 90% of use cases. However, Logic
+      // Pro has an annoying quirk where the buffer size reported by the host to the plug-in is
+      // *always* 1024, regardless of the actually chosen buffer size. The only way to guarantee a
+      // correct value is by checking the actual number of samples inside the buffer we are given:
+      bufferSize = audio.getNumSamples();
+
       state = State::Recording;
       return;
     case State::Recording:
@@ -85,7 +93,7 @@ void PluginProcessor::calculateDelayAndUpdate() const
   const auto largestElement = std::max_element(differences.cbegin(), differences.cend());
   const auto index = std::distance(differences.cbegin(), largestElement);
 
-  const auto delayInSamples = static_cast<int>(index) /* - bufferSize */;
+  const auto delayInSamples = static_cast<int>(index) - bufferSize;
   const auto delayInMilliseconds = delayInSamples * 1e3 / sampleRate;
 
   assert(updateDelay);
