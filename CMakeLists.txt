@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.22)
 
 project(Clickr
     VERSION     0.2.0
-    LANGUAGES   CXX)
+    LANGUAGES   C CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
@@ -39,12 +39,6 @@ target_compile_definitions(${CMAKE_PROJECT_NAME} PUBLIC
   # This one's important because it gets rid of the "gtk header not found" error
   # when compiling under Ubuntu:
   JUCE_WEB_BROWSER=0
-
-  # Disabling the splash screen is only legal if you purchase a JUCE license, or
-  # if you license your project using the GNU Public License.
-  # - https://www.gnu.org/licenses
-  # - https://juce.com/juce-6-licence
-  JUCE_DISPLAY_SPLASH_SCREEN=0
 )
 
 target_link_libraries(${CMAKE_PROJECT_NAME} PUBLIC
